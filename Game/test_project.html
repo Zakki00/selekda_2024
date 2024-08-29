@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Realistic Bouncing Ball with Image</title>
+    <style>
+        canvas {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="gameCanvas" width="800" height="600"></canvas>
+    <script>
+        const canvas = document.getElementById('gameCanvas');
+        const context = canvas.getContext('2d');
+
+        const gravity = 0.98; // Gaya gravitasi
+        const restitution = 0.75; // Koefisien restitusi
+
+        // Buat objek gambar untuk bola
+        const ballImage = new Image();
+        ballImage.src = 'Ball 01.png'; // Ganti dengan path gambar bola Anda
+
+        const ball = {
+            x: canvas.width / 2,
+            y: canvas.height / 2,
+            radius: 20, // Atur radius gambar sesuai ukuran gambar bola
+            dx: 2,
+            dy: -15,
+            color: 'blue' // Ini akan diabaikan jika menggunakan gambar
+        };
+
+        function drawBall() {
+            context.drawImage(ballImage, ball.x - ball.radius, ball.y - ball.radius, ball.radius * 2, ball.radius * 2);
+        }
+
+        function updateBall() {
+            ball.x += ball.dx;
+            ball.y += ball.dy;
+
+            // Tambahkan gravitasi ke kecepatan y
+            ball.dy += gravity;
+
+            // Cek tabrakan dengan dinding kiri dan kanan
+            if (ball.x + ball.radius > canvas.width || ball.x - ball.radius < 0) {
+                ball.dx = -ball.dx;
+            }
+
+            // Cek tabrakan dengan lantai
+            if (ball.y + ball.radius > canvas.height) {
+                ball.y = canvas.height - ball.radius;
+                ball.dy = -ball.dy * restitution;
+
+                // Hentikan bola jika kecepatan sangat kecil
+                if (Math.abs(ball.dy) < 0.5) {
+                    ball.dy = 0;
+                    ball.dx = 0;
+                }
+            }
+        }
+
+        function gameLoop() {
+            context.clearRect(0, 0, canvas.width, canvas.height);
+
+            updateBall();
+            drawBall();
+
+            requestAnimationFrame(gameLoop);
+        }
+
+        // Tunggu gambar bola dimuat sebelum memulai game loop
+        ballImage.onload = function() {
+            gameLoop();
+        };
+    </script>
+</body>
+</html>
