@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>World Head Football</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- form unutk login -->
+    
+
+
+    <div id="game-container">
+        <div id="header">
+            <input type="text" id="player-name" placeholder="Player Name">
+            <button id="match-history-btn">Match History</button>
+        </div>
+        <div id="scoreboard">
+            <div class="team">
+                <img src="images/brazil-flag.png" alt="Brazil Flag" class="flag">
+                <span id="score-player">2</span>
+            </div>
+            <div class="team">
+                <span id="timer">30</span>
+            </div>
+            <div class="team">
+                <span id="score-opponent">0</span>
+                <img src="images/england-flag.png" alt="England Flag" class="flag">
+            </div>
+        </div>
+        <canvas id="gameCanvas" width="1000" height="400"></canvas>
+        <div id="footer">
+            <span>World Head Football</span>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
