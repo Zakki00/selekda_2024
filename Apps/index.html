@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1280, initial-scale=1.0">
+    <title>DSGN App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="profile">
+        
+    </div>
+    <div class="navbar">
+        <button class="lingkaran"></button>
+        <button class="persegi"></button>
+    </div>
+    
+    
+    <div id="welcome-screen">
+        <img src="web_tech.png" alt="DSGN Logo">
+        <h1>DSGN</h1>
+    </div>
+    <div class="container">
+        <div class="toolbar">
+            <button class="undo">undo</button>
+            <button class="redo">redo</button>
+        </div>
+        <div class="toolbar">
+            <button class="zoom">+</button>
+            <button class="zoom">-</button>
+        </div>
+      
+    </div>
+       
+       
+    
+        <!-- Work Area di Tengah -->
+        <div id="workspace">
+            <div id="work-area">
+                <canvas id="canvas" width="1280" height="600"></canvas>
+            </div>
+        </div>
+    
+        <!-- Layer Bar -->
+        <div id="layer-bar">
+            <!-- Tombol Pilihan Warna -->
+            <button class="color-btn" data-color="black" style="background-color: black;"></button>
+            <button class="color-btn" data-color="red" style="background-color: red;"></button>
+            <button class="color-btn" data-color="green" style="background-color: green;"></button>
+            <button class="color-btn" data-color="blue" style="background-color: blue;"></button>
+        </div>
+    </body>
+    
+   
+    
+    
+    <script src="script.js"></script>
+</body>
+</html>
