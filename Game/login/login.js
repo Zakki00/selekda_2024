@@ -16,6 +16,6 @@ document.addEventListener("DOMContentLoaded", function() {
     playButton.addEventListener("click", function() {
         const playerName = playerNameInput.value;
         localStorage.setItem("playerName", playerName);
-        window.location.href = "index.html";
+        window.location.href = "../index.html";
     });
 })
